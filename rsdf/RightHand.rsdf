@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<robot name="RightHand">
+
+  <planar_surface name="RightHand" link="righthand">
+    <origin rpy="-0.0 -0.0 0.0" xyz="0.0 0.00 -0.05" />
+    <points>
+      <point xy="0.04749999940395355 -0.013833190314471722" />
+      <point xy="0.04749999940395355 0.013833190314471722" />
+      <point xy="-0.047499991953372955 0.013833190314471722" />
+      <point xy="-0.047499991953372955 -0.013833190314471722" />
+    </points>
+    <material name="plastic" />
+  </planar_surface>
+
+</robot>

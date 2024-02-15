@@ -1,0 +1,37 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/devel/include/**",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/devel/include/**",
+        "/home/allfather/devel_software/Touch_ROS_Driver/catkin_ws/devel/include/**",
+        "/home/allfather/devel/src/catkin_data_ws/devel/include/**",
+        "/home/allfather/devel/src/catkin_ws/devel/include/**",
+        "/home/allfather/roslearning/self_driving/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/allfather/roslearning/self_driving/catkin_ws/src/box/include/**",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/allfather/roslearning/self_driving/catkin_ws/src/lane_detection/include/**",
+        "/home/allfather/devel_software/Touch_ROS_Driver/catkin_ws/src/Geomagic_Touch_ROS_Drivers/omni_common/include/**",
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/src/robotiq_2f_gripper_action_server/include/**",
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/src/robotiq_2f_gripper_control/include/**",
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/src/robotiq_ethercat/include/**",
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/src/robotiq_ft_sensor/include/**",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/src/fmauch_universal_robot/ur_kinematics/include/**",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

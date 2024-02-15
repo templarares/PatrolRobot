@@ -1,0 +1,14 @@
+<package format="2">
+  <name>patrolrobot</name>
+  <version>1.0.0</version>
+  <description>
+    <p>URDF Description package for PatrolRobotDescription</p>
+  </description>
+  <author>BHR610Group</author>
+  <maintainer email="BIT610@bit.com" />
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <export>
+    <architecture_independent />
+  </export>
+</package>

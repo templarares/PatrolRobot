@@ -1,0 +1,1774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="PatrolRobot">
+  <mujoco>
+    <compiler meshdir="" balanceinertia="true" discardvisual="false"/>
+  </mujoco>
+  <link
+    name="torso">
+    <inertial>
+      <origin
+        xyz="-0.0066717767331129 0.00092150806408371 0.373214317946892"
+        rpy="0 0 0" />
+      <mass
+        value="19.9083785332556" />
+      <inertia
+        ixx="0.107504070086252"
+        ixy="9.86156679026964E-06"
+        ixz="0.00411534849426708"
+        iyy="0.0781594218341379"
+        iyz="6.63917270840747E-05"
+        izz="0.0978308256367201" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/torso.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/torso.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rhipyaw">
+    <inertial>
+      <origin
+        xyz="-0.00566950229469464 -2.01306012900804E-07 -0.0315530536874254"
+        rpy="0 0 0" />
+      <mass
+        value="1.29354905501375" />
+      <inertia
+        ixx="0.00149629906740707"
+        ixy="1.72511544778979E-07"
+        ixz="-0.000252083153835543"
+        iyy="0.00232036911200236"
+        iyz="4.57109065479072E-09"
+        izz="0.00204600993939266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhipyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhipyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhipyaw"
+    type="revolute">
+    <origin
+      xyz="-0.00100000000000043 -0.100000000000074 0.154500000000049"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="rhipyaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit lower="-0.4187" upper="0.2791" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rhiproll">
+    <inertial>
+      <origin
+        xyz="0.05476705323906 -0.00471997482112012 -1.56068039575893E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.663140744464748" />
+      <inertia
+        ixx="0.00107233708845933"
+        ixy="1.89604005078488E-05"
+        ixz="-1.85615311001101E-08"
+        iyy="0.00095387201342508"
+        iyz="-1.47696849276024E-09"
+        izz="0.00102671170238701" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhiproll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhiproll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhiproll"
+    type="revolute">
+    <origin
+      xyz="-0.0985749999999924 0 -0.154500000000005"
+      rpy="0 0 0" />
+    <parent
+      link="rhipyaw" />
+    <child
+      link="rhiproll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.5582" upper="0.3489" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rhippitch">
+    <inertial>
+      <origin
+        xyz="0.00987779305511675 0.00902905394346111 -0.124101988790807"
+        rpy="0 0 0" />
+      <mass
+        value="1.93907371498769" />
+      <inertia
+        ixx="0.0134937741610584"
+        ixy="-1.35378608466847E-07"
+        ixz="0.000257746171798267"
+        iyy="0.0126883217770773"
+        iyz="1.28868895528312E-06"
+        izz="0.00347473577753381" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhippitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rhippitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rhippitch"
+    type="revolute">
+    <origin
+      xyz="0.098575 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rhiproll" />
+    <child
+      link="rhippitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.4884" upper="1.57" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rkneepitch">
+    <inertial>
+      <origin
+        xyz="0.00299332103529367 -0.000641405111911519 -0.127537109943688"
+        rpy="0 0 0" />
+      <mass
+        value="1.27080981765739" />
+      <inertia
+        ixx="0.00850588746449565"
+        ixy="-4.38733660606253E-08"
+        ixz="-5.69730653974445E-05"
+        iyy="0.00818219248636572"
+        iyz="8.5569427585091E-09"
+        izz="0.00132598333520248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rkneepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rkneepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rkneepitch"
+    type="revolute">
+    <origin
+      xyz="0.00754465241400107 0.00335999999997089 -0.374942885683647"
+      rpy="0 0 0" />
+    <parent
+      link="rhippitch" />
+    <child
+      link="rkneepitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-0.0" upper="2.355" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="ranklepitch">
+    <inertial>
+      <origin
+        xyz="-0.0204100817441415 9.68619875778981E-05 0.00245427998168624"
+        rpy="0 0 0" />
+      <mass
+        value="0.178163381724389" />
+      <inertia
+        ixx="3.73863427586149E-05"
+        ixy="2.55215933586501E-09"
+        ixz="1.93173214910158E-06"
+        iyy="0.000148806623068618"
+        iyz="1.51210981157756E-11"
+        izz="0.000147709729899255" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/ranklepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/ranklepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ranklepitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="rkneepitch" />
+    <child
+      link="ranklepitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.8722" upper="1.221" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rankleroll">
+    <inertial>
+      <origin
+        xyz="0.103469102108915 0.000115476592014899 -0.0513475401619117"
+        rpy="0 0 0" />
+      <mass
+        value="1.59353254161456" />
+      <inertia
+        ixx="0.000994581270897754"
+        ixy="-2.38612847445325E-05"
+        ixz="-8.17885663635239E-05"
+        iyy="0.00439916187133898"
+        iyz="-2.65425473487945E-06"
+        izz="0.00514840990630437" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rankleroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rankleroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rankleroll"
+    type="revolute">
+    <origin
+      xyz="-0.09675 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="ranklepitch" />
+    <child
+      link="rankleroll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.314" upper="0.314" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lhipyaw">
+    <inertial>
+      <origin
+        xyz="-0.00566950229469464 2.01306012900804E-07 -0.0315530536874254"
+        rpy="0 0 0" />
+      <mass
+        value="1.29354905501375" />
+      <inertia
+        ixx="0.00149629906740707"
+        ixy="-1.72511544778979E-07"
+        ixz="-0.000252083153835543"
+        iyy="0.00232036911200236"
+        iyz="-4.57109065479072E-09"
+        izz="0.00204600993939266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhipyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhipyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhipyaw"
+    type="revolute">
+    <origin
+      xyz="-0.00100000000001218 0.0999999999999262 0.154500000000032"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="lhipyaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit lower="-0.279" upper="0.4187" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lhiproll">
+    <inertial>
+      <origin
+        xyz="0.05476705323906 0.00471997482112012 -1.56068039575893E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.663140744464748" />
+      <inertia
+        ixx="0.00107233708845933"
+        ixy="-1.89604005078488E-05"
+        ixz="-1.85615311001101E-08"
+        iyy="0.00095387201342508"
+        iyz="1.47696849276024E-09"
+        izz="0.00102671170238701" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhiproll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhiproll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhiproll"
+    type="revolute">
+    <origin
+      xyz="-0.0985749999999926 0 -0.154500000000005"
+      rpy="0 0 0" />
+    <parent
+      link="lhipyaw" />
+    <child
+      link="lhiproll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.3489" upper="0.5582" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lhippitch">
+    <inertial>
+      <origin
+        xyz="0.00987779305511675 -0.00902905394346111 -0.124101988790807"
+        rpy="0 0 0" />
+      <mass
+        value="1.93907371498769" />
+      <inertia
+        ixx="0.0134937741610584"
+        ixy="1.35378608466847E-07"
+        ixz="0.000257746171798267"
+        iyy="0.0126883217770773"
+        iyz="-1.28868895528312E-06"
+        izz="0.00347473577753381" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhippitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lhippitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lhippitch"
+    type="revolute">
+    <origin
+      xyz="0.0985749999999998 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lhiproll" />
+    <child
+      link="lhippitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-1.57" upper="0.4884" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lkneepitch">
+    <inertial>
+      <origin
+        xyz="0.00299332103529367 0.000641405111911519 -0.127537109943688"
+        rpy="0 0 0" />
+      <mass
+        value="1.27080981765739" />
+      <inertia
+        ixx="0.00850588746449565"
+        ixy="4.38733660606253E-08"
+        ixz="-5.69730653974445E-05"
+        iyy="0.00818219248636572"
+        iyz="-8.5569427585091E-09"
+        izz="0.00132598333520248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lkneepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lkneepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lkneepitch"
+    type="revolute">
+    <origin
+      xyz="0.00754465241400048 -0.00336000000003525 -0.374942885683646"
+      rpy="0 0 0" />
+    <parent
+      link="lhippitch" />
+    <child
+      link="lkneepitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-0.0" upper="2.355" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lanklepitch">
+    <inertial>
+      <origin
+        xyz="-0.0204100817441415 -9.68619875778981E-05 0.00245427998168624"
+        rpy="0 0 0" />
+      <mass
+        value="0.178163381724389" />
+      <inertia
+        ixx="3.73863427586149E-05"
+        ixy="-2.55215933586501E-09"
+        ixz="1.93173214910158E-06"
+        iyy="0.000148806623068618"
+        iyz="-1.51210981157756E-11"
+        izz="0.000147709729899255" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lanklepitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lanklepitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lanklepitch"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="lkneepitch" />
+    <child
+      link="lanklepitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.872" upper="1.221" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lankleroll">
+    <inertial>
+      <origin
+        xyz="0.10537034457661 0.000141311891230761 -0.0521031202317045"
+        rpy="0 0 0" />
+      <mass
+        value="1.57030439282328" />
+      <inertia
+        ixx="0.000986318456173677"
+        ixy="-2.17189904866915E-05"
+        ixz="-8.16560376211645E-05"
+        iyy="0.00439342301609435"
+        iyz="-3.28901888245103E-06"
+        izz="0.00514256952995624" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lankleroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lankleroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lankleroll"
+    type="revolute">
+    <origin
+      xyz="-0.096749999999996 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lanklepitch" />
+    <child
+      link="lankleroll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.314" upper="0.314" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rshoulderpitch">
+    <inertial>
+      <origin
+        xyz="-0.000887771088822945 -0.0497887772203255 -0.00455629006292185"
+        rpy="0 0 0" />
+      <mass
+        value="0.53023229510381" />
+      <inertia
+        ixx="0.000463010811342823"
+        ixy="-2.03826026218066E-05"
+        ixz="-2.5131266129284E-05"
+        iyy="0.000596494021448256"
+        iyz="-6.38343562328724E-05"
+        izz="0.000485145146511114" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rshoulderpitch"
+    type="revolute">
+    <origin
+      xyz="-0.0272500000000646 -0.110499999999956 0.505000000000049"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="rshoulderpitch" />
+    <axis
+      xyz="0 -1 0" />
+    <limit lower="-0.7676" upper="2.529" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rshoulderroll">
+    <inertial>
+      <origin
+        xyz="0.000828082894461665 1.47502876990946E-05 -0.0100055101462937"
+        rpy="0 0 0" />
+      <mass
+        value="0.098424165160246" />
+      <inertia
+        ixx="8.51204721909534E-05"
+        ixy="-2.11832780496665E-09"
+        ixz="1.69152171330353E-06"
+        iyy="5.15216415899256E-05"
+        iyz="3.4377451652789E-09"
+        izz="4.89090133972881E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rshoulderroll"
+    type="revolute">
+    <origin
+      xyz="0.004350000000008 -0.109200000000003 -0.0399999999999904"
+      rpy="0 0 0" />
+    <parent
+      link="rshoulderpitch" />
+    <child
+      link="rshoulderroll" />
+    <axis
+      xyz="-1 0 0" />
+    <limit lower="-0.0" upper="1.814" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rshoulderyaw">
+    <inertial>
+      <origin
+        xyz="-0.000495242728976969 0.00129190812401117 -0.0929737588909962"
+        rpy="0 0 0" />
+      <mass
+        value="0.524908246993236" />
+      <inertia
+        ixx="0.00110056024118873"
+        ixy="-2.90001329251303E-07"
+        ixz="-7.37487935367103E-06"
+        iyy="0.00119040963043546"
+        iyz="2.61016982117169E-05"
+        izz="0.000640623523346191" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rshoulderyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rshoulderyaw"
+    type="revolute">
+    <origin
+      xyz="0 9.227400462547E-05 -0.0733107045006927"
+      rpy="0 0 0" />
+    <parent
+      link="rshoulderroll" />
+    <child
+      link="rshoulderyaw" />
+    <axis
+      xyz="0 -0.00125866927840111 0.99999920787551" />
+    <limit lower="-1.55" upper="1.55" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="relbowpitch">
+    <inertial>
+      <origin
+        xyz="0.000679428901477853 -0.00934768192879692 -0.10784559591783"
+        rpy="0 0 0" />
+      <mass
+        value="0.804714221906184" />
+      <inertia
+        ixx="0.00127857517817763"
+        ixy="1.4876188241578E-06"
+        ixz="-3.24592422550878E-05"
+        iyy="0.00127952935914924"
+        iyz="1.07925404814637E-05"
+        izz="0.000560309565849461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/relbowpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/relbowpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="relbowpitch"
+    type="revolute">
+    <origin
+      xyz="0 0.000234476540047462 -0.18628908986379"
+      rpy="0 0 0" />
+    <parent
+      link="rshoulderyaw" />
+    <child
+      link="relbowpitch" />
+    <axis
+      xyz="0 -0.99999920787551 -0.00125866927840116" />
+    <limit lower="-0.0" upper="1.71" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rwristpitch">
+    <inertial>
+      <origin
+        xyz="0.00132711822690385 -0.0061213645778796 -0.000150439392989345"
+        rpy="0 0 0" />
+      <mass
+        value="0.155981933761134" />
+      <inertia
+        ixx="5.86867257265538E-05"
+        ixy="-2.04711987914548E-07"
+        ixz="-7.923208792876E-08"
+        iyy="3.45579248369846E-05"
+        iyz="6.37599689643172E-08"
+        izz="4.49795533995211E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rwristpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rwristpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwristpitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.00506868317841164 -0.223506556840815"
+      rpy="0 0 0" />
+    <parent
+      link="relbowpitch" />
+    <child
+      link="rwristpitch" />
+    <axis
+      xyz="0 0.99999920787551 0.00125866927840168" />
+    <limit lower="-0.872" upper="0.7676" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="rwristroll">
+    <inertial>
+      <origin
+        xyz="3.17007984787024E-05 0.000146184165193519 -0.0984735201152611"
+        rpy="0 0 0" />
+      <mass
+        value="0.540922726479112" />
+      <inertia
+        ixx="0.000269541133845072"
+        ixy="9.54473660105295E-08"
+        ixz="7.79008324331895E-06"
+        iyy="0.000336687465746597"
+        iyz="-2.03522411455094E-07"
+        izz="0.000283017921561854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rwristroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/rwristroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwristroll"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rwristpitch" />
+    <child
+      link="rwristroll" />
+    <axis
+      xyz="-1 0 0" />
+    <limit lower="-0.855" upper="0.942" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="righthand">
+  </link>
+  <joint
+    name="righthand"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.17"
+      rpy="0 0 0" />
+    <parent
+      link="rwristroll" />
+    <child
+      link="righthand" />
+  </joint>  
+  <link
+    name="lshoulderpitch">
+    <inertial>
+      <origin
+        xyz="-0.000887771088822945 0.0497887772203255 -0.00455629006292185"
+        rpy="0 0 0" />
+      <mass
+        value="0.53023229510381" />
+      <inertia
+        ixx="0.000463010811342823"
+        ixy="2.03826026218066E-05"
+        ixz="-2.5131266129284E-05"
+        iyy="0.000596494021448256"
+        iyz="6.38343562328724E-05"
+        izz="0.000485145146511114" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lshoulderpitch"
+    type="revolute">
+    <origin
+      xyz="-0.0272500000000753 0.110500000000043 0.505000000000031"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="lshoulderpitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit lower="-2.53" upper="0.7676" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lshoulderroll">
+    <inertial>
+      <origin
+        xyz="0.000828082894461665 -1.47502876990946E-05 -0.0100055101462937"
+        rpy="0 0 0" />
+      <mass
+        value="0.098424165160246" />
+      <inertia
+        ixx="8.51204721909534E-05"
+        ixy="2.11832780496665E-09"
+        ixz="1.69152171330353E-06"
+        iyy="5.15216415899256E-05"
+        iyz="-3.4377451652789E-09"
+        izz="4.89090133972881E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lshoulderroll"
+    type="revolute">
+    <origin
+      xyz="0.00434999999999584 0.109199999999997 -0.0400000000000104"
+      rpy="0 0 0" />
+    <parent
+      link="lshoulderpitch" />
+    <child
+      link="lshoulderroll" />
+    <axis
+      xyz="-1 0 0" />
+    <limit lower="-1.8142" upper="0.0" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lshoulderyaw">
+    <inertial>
+      <origin
+        xyz="-0.000495242728976969 -0.00129190812401117 -0.0929737588909962"
+        rpy="0 0 0" />
+      <mass
+        value="0.524908246993236" />
+      <inertia
+        ixx="0.00110056024118873"
+        ixy="2.90001329251303E-07"
+        ixz="-7.37487935367103E-06"
+        iyy="0.00119040963043546"
+        iyz="-2.61016982117169E-05"
+        izz="0.000640623523346191" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderyaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lshoulderyaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lshoulderyaw"
+    type="revolute">
+    <origin
+      xyz="0 0.00055513506067989 -0.0713220690352094"
+      rpy="0 0 0" />
+    <parent
+      link="lshoulderroll" />
+    <child
+      link="lshoulderyaw" />
+    <axis
+      xyz="0 -0.00778326054096405 0.999969709968933" />
+    <limit lower="-1.55" upper="1.55" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lelbowpitch">
+    <inertial>
+      <origin
+        xyz="0.000679428901477853 0.00934768192879692 -0.10784559591783"
+        rpy="0 0 0" />
+      <mass
+        value="0.804714221906184" />
+      <inertia
+        ixx="0.00127857517817763"
+        ixy="-1.4876188241578E-06"
+        ixz="-3.24592422550878E-05"
+        iyy="0.00127952935914924"
+        iyz="-1.07925404814637E-05"
+        izz="0.000560309565849461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lelbowpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lelbowpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lelbowpitch"
+    type="revolute">
+    <origin
+      xyz="0 0.00146539937575435 -0.188270067672726"
+      rpy="0 0 0" />
+    <parent
+      link="lshoulderyaw" />
+    <child
+      link="lelbowpitch" />
+    <axis
+      xyz="0 -0.999969709968933 -0.00778326054096349" />
+    <limit lower="-0.0" upper="1.71" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lwristpitch">
+    <inertial>
+      <origin
+        xyz="0.00132711822690385 0.0061213645778796 -0.000150439392989345"
+        rpy="0 0 0" />
+      <mass
+        value="0.155981933761134" />
+      <inertia
+        ixx="5.86867257265538E-05"
+        ixy="2.04711987914548E-07"
+        ixz="-7.923208792876E-08"
+        iyy="3.45579248369846E-05"
+        iyz="-6.37599689643172E-08"
+        izz="4.49795533995211E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lwristpitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lwristpitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwristpitch"
+    type="revolute">
+    <origin
+      xyz="0 0.00708939667923886 -0.223451589734162"
+      rpy="0 0 0" />
+    <parent
+      link="lelbowpitch" />
+    <child
+      link="lwristpitch" />
+    <axis
+      xyz="0 0.999969709968933 0.00778326054096025" />
+    <limit lower="-0.8722" upper="0.7676" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lwristroll">
+    <inertial>
+      <origin
+        xyz="3.17007984787024E-05 -0.000146184165193519 -0.0984735201152611"
+        rpy="0 0 0" />
+      <mass
+        value="0.540922726479112" />
+      <inertia
+        ixx="0.000269541133845072"
+        ixy="-9.54473660105295E-08"
+        ixz="7.79008324331895E-06"
+        iyy="0.000336687465746597"
+        iyz="2.03522411455094E-07"
+        izz="0.000283017921561854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lwristroll.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://patrolrobot/meshes/lwristroll.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwristroll"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lwristpitch" />
+    <child
+      link="lwristroll" />
+    <axis
+      xyz="1 0 0" />
+    <limit lower="-0.942" upper="0.8548" effort="140" velocity="4.5"/>
+  </joint>
+  <link
+    name="lefthand">
+  </link>
+  <joint
+    name="lefthand"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.17"
+      rpy="0 0 0" />
+    <parent
+      link="lwristroll" />
+    <child
+      link="lefthand" />
+  </joint>
+  
+    <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00043233 -3.2765E-05 0.059942"
+        rpy="0 0 0" />
+      <mass
+        value="0.84108" />
+      <inertia
+        ixx="0.0017261"
+        ixy="2.4864E-06"
+        ixz="-3.6752E-05"
+        iyy="0.0017099"
+        iyz="1.7199E-06"
+        izz="0.00090404" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_link"
+    type="fixed">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="0 0 0" />
+    <parent
+      link="torso" />
+    <child
+      link="base_link" />
+  </joint>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="1.4691E-07 0.021109 -0.025186"
+        rpy="0 0 0" />
+      <mass
+        value="0.59356" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-1.2313E-08"
+        ixz="-1.0057E-08"
+        iyy="0.0011817"
+        iyz="-0.00021122"
+        izz="0.00056135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="0.15226 4.2545E-07 -0.0062026"
+        rpy="0 0 0" />
+      <mass
+        value="0.86418" />
+      <inertia
+        ixx="0.00063253"
+        ixy="-8.795E-09"
+        ixz="0.00042163"
+        iyy="0.0020527"
+        iyz="2.3725E-09"
+        izz="0.0019528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.269"
+      upper="2.269"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="4.7938E-06 -0.059593 0.010569"
+        rpy="0 0 0" />
+      <mass
+        value="0.28965" />
+      <inertia
+        ixx="0.00063737"
+        ixy="-5.9726E-08"
+        ixz="-3.3299E-08"
+        iyy="0.00015649"
+        iyz="-0.00014461"
+        izz="0.00061418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.256 0 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.356"
+      upper="2.356"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="1.0293E-06 -0.018042 -0.021539"
+        rpy="0 0 0" />
+      <mass
+        value="0.23942" />
+      <inertia
+        ixx="0.00028594"
+        ixy="2.854E-09"
+        ixz="-1.9592E-09"
+        iyy="0.00026273"
+        iyz="4.4237E-05"
+        izz="0.00011989" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0 -0.21 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link5">
+    <inertial>
+      <origin
+        xyz="3.4528E-06 -0.059382 0.0073678"
+        rpy="0 0 0" />
+      <mass
+        value="0.21879" />
+      <inertia
+        ixx="0.00035053"
+        ixy="-3.165E-08"
+        ixz="-1.7434E-08"
+        iyy="0.00010492"
+        iyz="-7.824E-05"
+        izz="0.00033447" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link4" />
+    <child
+      link="Link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.234"
+      upper="2.234"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link6">
+    <inertial>
+      <origin
+        xyz="0.00081643 1.3288E-05 -0.012705"
+        rpy="0 0 0" />
+      <mass
+        value="0.065035" />
+      <inertia
+        ixx="2.1143E-05"
+        ixy="-2.2878E-08"
+        ixz="-2.5601E-08"
+        iyy="1.811E-05"
+        iyz="-1.0178E-08"
+        izz="3.19E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_65_b_description/meshes/Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 -0.144 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link5" />
+    <child
+      link="Link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283"
+      upper="6.283"
+      effort="100"
+      velocity="1" />
+  </joint>
+</robot>

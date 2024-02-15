@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/allfather/devel_software/robotiq_stuff/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/allfather/devel_software/Touch_ROS_Driver/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/allfather/roslearning/ur_learning/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/allfather/devel/src/catkin_data_ws/devel/lib/python3/dist-packages",
+        "/home/allfather/devel/src/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/allfather/roslearning/self_driving/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/local/lib/python/site-packages"
+    ]
+}

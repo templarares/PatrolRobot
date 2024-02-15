@@ -1,0 +1,364 @@
+<mujoco model="V1.4_AllDoF_WithoutTuiGan_URDF">
+  <compiler angle="radian" autolimits="true"/>
+  <default/>
+  <asset>
+    <mesh name="torso" file="torso.STL"/>
+    <mesh name="rhipyaw" file="rhipyaw.STL"/>
+    <mesh name="rhiproll" file="rhiproll.STL"/>
+    <mesh name="rhippitch" file="rhippitch.STL"/>
+    <mesh name="rkneepitch" file="rkneepitch.STL"/>
+    <mesh name="ranklepitch" file="ranklepitch.STL"/>
+    <mesh name="rankleroll" file="rankleroll.STL"/>
+    <mesh name="lhipyaw" file="lhipyaw.STL"/>
+    <mesh name="lhiproll" file="lhiproll.STL"/>
+    <mesh name="lhippitch" file="lhippitch.STL"/>
+    <mesh name="lkneepitch" file="lkneepitch.STL"/>
+    <mesh name="lanklepitch" file="lanklepitch.STL"/>
+    <mesh name="lankleroll" file="lankleroll.STL"/>
+    <mesh name="rshoulderpitch" file="rshoulderpitch.STL"/>
+    <mesh name="rshoulderroll" file="rshoulderroll.STL"/>
+    <mesh name="rshoulderyaw" file="rshoulderyaw.STL"/>
+    <mesh name="relbowpitch" file="relbowpitch.STL"/>
+    <mesh name="rwristpitch" file="rwristpitch.STL"/>
+    <mesh name="rwristroll" file="rwristroll.STL"/>
+    <mesh name="lshoulderpitch" file="lshoulderpitch.STL"/>
+    <mesh name="lshoulderroll" file="lshoulderroll.STL"/>
+    <mesh name="lshoulderyaw" file="lshoulderyaw.STL"/>
+    <mesh name="lelbowpitch" file="lelbowpitch.STL"/>
+    <mesh name="lwristpitch" file="lwristpitch.STL"/>
+    <mesh name="lwristroll" file="lwristroll.STL"/>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="512" height="512" mark="cross" markrgb=".8 .8 .8"/>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278"
+            rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>
+        <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true"/>
+        <material name="matgeom" texture="texgeom" texuniform="true" rgba="0.8 0.6 .4 1"/>
+  </asset>
+
+  <option timestep="0.001" iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="pyramidal"/>
+
+  <visual>
+        <map force="0.1" zfar="30"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <quality shadowsize="2048"/>
+        <global offwidth="800" offheight="800"/>
+  </visual>
+
+  <worldbody>
+    <light directional="true" diffuse=".4 .4 .4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+        <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+
+        <geom name="floor" pos="0 0 0" size="15 15 1" type="plane" material="matplane" margin="0.001" condim="3" friction="1 0.005 0.0001" />
+    <!-- <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="torso"/> -->
+    <!-- <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="torso"/> -->
+
+    <body name="torso" pos="0 0 1.4">
+      <freejoint name="root"/>
+      <inertial pos="-0.026 0 0.373214317947705" quat="1 0 0 0" mass="19.908" diaginertia="0.107504070088999 0.0781594218334911 0.0978308256388243" />
+            <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="torso" />
+      <site name = "site_imu" size = "0.01" pos = "0.0000000 0.00000000 0.2400000"/>
+      <body name="rhipyaw" pos="-0.001 -0.1 0.1545" gravcomp="0">
+        <inertial pos="-0.0056695 -2.01306e-07 -0.0315531" quat="0.583794 0.399158 0.399187 0.58353" mass="1.29355" diaginertia="0.00232037 0.0021441 0.0013982"/>
+        <joint name="rhipyaw" pos="0 0 0" axis="0 0 1"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="rhipyaw"/>
+        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rhipyaw"/>
+        <body name="rhiproll" pos="-0.098575 0 -0.1545" gravcomp="0">
+          <inertial pos="0.0547671 -0.00471997 -1.56068e-05" quat="0.705004 0.70497 0.0548439 0.0545755" mass="0.663141" diaginertia="0.0010753 0.00102671 0.000950911"/>
+          <joint name="rhiproll" pos="0 0 0" axis="1 0 0"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="rhiproll"/>
+          <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rhiproll"/>
+          <body name="rhippitch" pos="0.098575 0 0" gravcomp="0">
+            <inertial pos="0.00987779 0.00902905 -0.124102" quat="0.999917 7.08525e-05 -0.0128511 -6.20284e-05" mass="1.93907" diaginertia="0.0135004 0.0126883 0.00346811"/>
+            <joint name="rhippitch" pos="0 0 0" axis="0 -1 0"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="rhippitch"/>
+            <geom type="mesh" rgba="1 1 1 1" mesh="rhippitch"/>
+            <body name="rkneepitch" pos="0.00754465 0.00336 -0.374943" gravcomp="0">
+              <inertial pos="0.00299332 -0.000641405 -0.127537" quat="0.999992 -2.68887e-07 0.00396719 -6.77772e-05" mass="1.27081" diaginertia="0.00850634 0.00818219 0.00132553"/>
+              <joint name="rkneepitch" pos="0 0 0" axis="0 1 0"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="rkneepitch"/>
+              <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rkneepitch"/>
+              <body name="ranklepitch" pos="0 0 -0.35" gravcomp="0">
+                <inertial pos="-0.0204101 9.6862e-05 0.00245428" quat="0.495597 0.504376 0.504337 0.495613" mass="0.178163" diaginertia="0.000148807 0.000147744 3.73525e-05"/>
+                <joint name="ranklepitch" pos="0 0 0" axis="0 -1 0"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="ranklepitch"/>
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="ranklepitch"/>
+                <body name="rankleroll" pos="-0.09675 0 0" gravcomp="0">
+                  <inertial pos="0.103469 0.000115477 -0.0513475" quat="-0.00349569 0.700112 0.00148732 0.714023" mass="1.59353" diaginertia="0.00515003 0.00439932 0.000992804"/>
+                  <joint name="rankleroll" pos="0 0 0" axis="1 0 0"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="rankleroll"/>
+                  <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rankleroll"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="lhipyaw" pos="-0.001 0.1 0.1545" gravcomp="0">
+        <inertial pos="-0.0056695 2.01306e-07 -0.0315531" quat="0.58353 0.399187 0.399158 0.583794" mass="1.29355" diaginertia="0.00232037 0.0021441 0.0013982"/>
+        <joint name="lhipyaw" pos="0 0 0" axis="0 0 1"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="lhipyaw"/>
+        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lhipyaw"/>
+        <body name="lhiproll" pos="-0.098575 0 -0.1545" gravcomp="0">
+          <inertial pos="0.0547671 0.00471997 -1.56068e-05" quat="0.70497 0.705004 -0.0545755 -0.0548439" mass="0.663141" diaginertia="0.0010753 0.00102671 0.000950911"/>
+          <joint name="lhiproll" pos="0 0 0" axis="1 0 0"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="lhiproll"/>
+          <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lhiproll"/>
+          <body name="lhippitch" pos="0.098575 0 0" gravcomp="0">
+            <inertial pos="0.00987779 -0.00902905 -0.124102" quat="0.999917 -7.08525e-05 -0.0128511 6.20284e-05" mass="1.93907" diaginertia="0.0135004 0.0126883 0.00346811"/>
+            <joint name="lhippitch" pos="0 0 0" axis="0 1 0"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="lhippitch"/>
+            <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="lhippitch"/>
+            <body name="lkneepitch" pos="0.00754465 -0.00336 -0.374943" gravcomp="0">
+              <inertial pos="0.00299332 0.000641405 -0.127537" quat="0.999992 2.68887e-07 0.00396719 6.77772e-05" mass="1.27081" diaginertia="0.00850634 0.00818219 0.00132553"/>
+              <joint name="lkneepitch" pos="0 0 0" axis="0 1 0"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="lkneepitch"/>
+              <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lkneepitch"/>
+              <body name="lanklepitch" pos="0 0 -0.35" gravcomp="0">
+                <inertial pos="-0.0204101 -9.6862e-05 0.00245428" quat="0.495613 0.504337 0.504376 0.495597" mass="0.178163" diaginertia="0.000148807 0.000147744 3.73525e-05"/>
+                <joint name="lanklepitch" pos="0 0 0" axis="0 -1 0"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="lanklepitch"/>
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lanklepitch"/>
+                <body name="lankleroll" pos="-0.09675 0 0" gravcomp="0">
+                  <inertial pos="0.10537 0.000141312 -0.0521031" quat="-0.00359769 0.700128 0.000946234 0.714007" mass="1.5703" diaginertia="0.00514418 0.00439355 0.000984576"/>
+                  <joint name="lankleroll" pos="0 0 0" axis="1 0 0"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="lankleroll"/>
+                  <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lankleroll"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="rshoulderpitch" pos="-0.02725 -0.1105 0.505" gravcomp="0">
+        <inertial pos="-0.000887771 -0.0497888 -0.00455629" quat="0.679927 0.108639 0.394786 0.60831" mass="0.530232" diaginertia="0.000625945 0.000490795 0.00042791"/>
+        <joint name="rshoulderpitch" pos="0 0 0" axis="0 -1 0"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="rshoulderpitch"/>
+        <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="rshoulderpitch"/>
+        <body name="rshoulderroll" pos="0.00435 -0.1092 -0.04" gravcomp="0">
+          <inertial pos="0.000828083 1.47503e-05 -0.0100055" quat="0.999729 0.000656764 -0.0232864 -1.37495e-05" mass="0.0984242" diaginertia="8.51993e-05 5.15216e-05 4.88302e-05"/>
+          <joint name="rshoulderroll" pos="0 0 0" axis="-1 0 0"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="rshoulderroll"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="rshoulderroll"/>
+          <body name="rshoulderyaw" pos="0 9.2274e-05 -0.0733107" gravcomp="0">
+            <inertial pos="-0.000495243 0.00129191 -0.0929738" quat="0.704267 0.0223209 -0.0111715 0.709496" mass="0.524908" diaginertia="0.00119165 0.00110067 0.00063927"/>
+            <joint name="rshoulderyaw" pos="0 0 0" axis="0 -0.00125867 0.999999"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.647059 0.619608 0.588235 1" mesh="rshoulderyaw"/>
+            <geom type="mesh" rgba="0.647059 0.619608 0.588235 1" mesh="rshoulderyaw"/>
+            <body name="relbowpitch" pos="0 0.000234477 -0.186289" gravcomp="0">
+              <inertial pos="0.000679429 -0.00934768 -0.107846" quat="0.939231 0.0147924 0.018599 0.342463" mass="0.804714" diaginertia="0.00128088 0.00127885 0.000558682"/>
+              <joint name="relbowpitch" pos="0 0 0" axis="0 -0.999999 -0.00125867"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="relbowpitch"/>
+              <geom type="mesh" rgba="1 1 1 1" mesh="relbowpitch"/>
+              <body name="rwristpitch" pos="0 -0.00506868 -0.223507" gravcomp="0">
+                <inertial pos="0.00132712 -0.00612136 -0.000150439" quat="0.709225 0.704963 -0.000932212 -0.00506463" mass="0.155982" diaginertia="5.86889e-05 4.49795e-05 3.45558e-05"/>
+                <joint name="rwristpitch" pos="0 0 0" axis="0 0.999999 0.00125867"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.890196 0.890196 0.913725 1" mesh="rwristpitch"/>
+                <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="rwristpitch"/>
+                <body name="rwristroll" pos="0 0 0" gravcomp="0">
+                  <inertial pos="3.17008e-05 0.000146184 -0.0984735" quat="0.383431 0.594541 0.595341 0.38088" mass="0.540923" diaginertia="0.000336688 0.000286579 0.000265979"/>
+                  <joint name="rwristroll" pos="0 0 0" axis="-1 0 0"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.890196 0.890196 0.913725 1" mesh="rwristroll"/>
+                  <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="rwristroll"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="lshoulderpitch" pos="-0.02725 0.1105 0.505" gravcomp="0">
+        <inertial pos="-0.000887771 0.0497888 -0.00455629" quat="0.60831 0.394786 0.108639 0.679927" mass="0.530232" diaginertia="0.000625945 0.000490795 0.00042791"/>
+        <joint name="lshoulderpitch" pos="0 0 0" axis="0 1 0"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="lshoulderpitch"/>
+        <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="lshoulderpitch"/>
+        <body name="lshoulderroll" pos="0.00435 0.1092 -0.04" gravcomp="0">
+          <inertial pos="0.000828083 -1.47503e-05 -0.0100055" quat="0.999729 -0.000656764 -0.0232864 1.37495e-05" mass="0.0984242" diaginertia="8.51993e-05 5.15216e-05 4.88302e-05"/>
+          <joint name="lshoulderroll" pos="0 0 0" axis="-1 0 0"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="lshoulderroll"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="lshoulderroll"/>
+          <body name="lshoulderyaw" pos="0 0.000555135 -0.0713221" gravcomp="0">
+            <inertial pos="-0.000495243 -0.00129191 -0.0929738" quat="0.709496 -0.0111715 0.0223209 0.704267" mass="0.524908" diaginertia="0.00119165 0.00110067 0.00063927"/>
+            <joint name="lshoulderyaw" pos="0 0 0" axis="0 -0.00778326 0.99997"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="lshoulderyaw"/>
+            <geom type="mesh" rgba="1 1 1 1" mesh="lshoulderyaw"/>
+            <body name="lelbowpitch" pos="0 0.0014654 -0.18827" gravcomp="0">
+              <inertial pos="0.000679429 0.00934768 -0.107846" quat="0.939231 -0.0147924 0.018599 -0.342463" mass="0.804714" diaginertia="0.00128088 0.00127885 0.000558682"/>
+              <joint name="lelbowpitch" pos="0 0 0" axis="0 -0.99997 -0.00778326"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="lelbowpitch"/>
+              <geom type="mesh" rgba="1 1 1 1" mesh="lelbowpitch"/>
+              <body name="lwristpitch" pos="0 0.0070894 -0.223452" gravcomp="0">
+                <inertial pos="0.00132712 0.00612136 -0.000150439" quat="0.704963 0.709225 0.00506463 0.000932212" mass="0.155982" diaginertia="5.86889e-05 4.49795e-05 3.45558e-05"/>
+                <joint name="lwristpitch" pos="0 0 0" axis="0 0.99997 0.00778326"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.890196 0.890196 0.913725 1" mesh="lwristpitch"/>
+                <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="lwristpitch"/>
+                <body name="lwristroll" pos="0 0 0" gravcomp="0">
+                  <inertial pos="3.17008e-05 -0.000146184 -0.0984735" quat="0.38088 0.595341 0.594541 0.383431" mass="0.540923" diaginertia="0.000336688 0.000286579 0.000265979"/>
+                  <joint name="lwristroll" pos="0 0 0" axis="1 0 0"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.890196 0.890196 0.913725 1" mesh="lwristroll"/>
+                  <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="lwristroll"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+   <contact>
+		<exclude body1 = "torso" body2 = "rhipyaw"/>
+		<exclude body1 = "torso" body2 = "rhiproll"/>
+		<exclude body1 = "torso" body2 = "rhippitch"/>
+		<exclude body1 = "torso" body2 = "rkneepitch"/>
+    <exclude body1 = "torso" body2 = "ranklepitch"/>
+		<exclude body1 = "torso" body2 = "rankleroll"/>
+		<exclude body1 = "torso" body2 = "lhipyaw"/>
+		<exclude body1 = "torso" body2 = "lhiproll"/>
+		<exclude body1 = "torso" body2 = "lhippitch"/>
+		<exclude body1 = "torso" body2 = "lkneepitch"/>
+    <exclude body1 = "torso" body2 = "lanklepitch"/>
+		<exclude body1 = "torso" body2 = "lankleroll"/>
+		<exclude body1 = "torso" body2 = "rshoulderpitch"/>
+    <exclude body1 = "torso" body2 = "rshoulderroll"/>
+    <exclude body1 = "torso" body2 = "rshoulderyaw"/>
+    <exclude body1 = "torso" body2 = "relbowpitch"/>
+    <exclude body1 = "torso" body2 = "rwristpitch"/>
+    <exclude body1 = "torso" body2 = "rwristroll"/>
+    <exclude body1 = "torso" body2 = "lshoulderpitch"/>
+    <exclude body1 = "torso" body2 = "lshoulderroll"/>
+    <exclude body1 = "torso" body2 = "lshoulderyaw"/>
+    <exclude body1 = "torso" body2 = "lelbowpitch"/>
+    <exclude body1 = "torso" body2 = "lwristpitch"/>
+    <exclude body1 = "torso" body2 = "lwristroll"/>
+
+    <!-- <rleg contact> -->
+    <exclude body1 = "rhipyaw" body2 = "rhiproll"/>
+    <exclude body1 = "rhipyaw" body2 = "rhippitch"/>
+    <exclude body1 = "rhipyaw" body2 = "rkneepitch"/>
+    <exclude body1 = "rhipyaw" body2 = "ranklepitch"/>
+    <exclude body1 = "rhipyaw" body2 = "rankleroll"/>
+
+    <exclude body1 = "rhiproll" body2 = "rhippitch"/>
+    <exclude body1 = "rhiproll" body2 = "rkneepitch"/>
+    <exclude body1 = "rhiproll" body2 = "ranklepitch"/>
+    <exclude body1 = "rhiproll" body2 = "rankleroll"/>
+
+    <exclude body1 = "rhippitch" body2 = "rkneepitch"/>
+    <exclude body1 = "rhippitch" body2 = "ranklepitch"/>
+    <exclude body1 = "rhippitch" body2 = "rankleroll"/>
+
+    <exclude body1 = "rkneepitch" body2 = "ranklepitch"/>
+    <exclude body1 = "rkneepitch" body2 = "rankleroll"/>
+
+    <exclude body1 = "ranklepitch" body2 = "rankleroll"/>
+    <!-- <lleg contact> -->
+    <exclude body1 = "lhipyaw" body2 = "lhiproll"/>
+    <exclude body1 = "lhipyaw" body2 = "lhippitch"/>
+    <exclude body1 = "lhipyaw" body2 = "lkneepitch"/>
+    <exclude body1 = "lhipyaw" body2 = "lanklepitch"/>
+    <exclude body1 = "lhipyaw" body2 = "lankleroll"/>
+
+    <exclude body1 = "lhiproll" body2 = "lhippitch"/>
+    <exclude body1 = "lhiproll" body2 = "lkneepitch"/>
+    <exclude body1 = "lhiproll" body2 = "lanklepitch"/>
+    <exclude body1 = "lhiproll" body2 = "lankleroll"/>
+
+    <exclude body1 = "lhippitch" body2 = "lkneepitch"/>
+    <exclude body1 = "lhippitch" body2 = "lanklepitch"/>
+    <exclude body1 = "lhippitch" body2 = "lankleroll"/>
+
+    <exclude body1 = "lkneepitch" body2 = "lanklepitch"/>
+    <exclude body1 = "lkneepitch" body2 = "lankleroll"/>
+
+    <exclude body1 = "lanklepitch" body2 = "lankleroll"/>
+
+    <!-- <Arm contact> -->
+		<exclude body1 = "rshoulderpitch" body2 = "rhipyaw"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rhiproll"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rhippitch"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rkneepitch"/>
+    <exclude body1 = "rshoulderpitch" body2 = "ranklepitch"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rankleroll"/>
+
+    <exclude body1 = "rshoulderpitch" body2 = "rshoulderroll"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rshoulderyaw"/>
+    <exclude body1 = "rshoulderpitch" body2 = "relbowpitch"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rwristpitch"/>
+    <exclude body1 = "rshoulderpitch" body2 = "rwristroll"/>
+
+    <exclude body1 = "rshoulderroll" body2 = "rshoulderyaw"/>
+    <exclude body1 = "rshoulderroll" body2 = "relbowpitch"/>
+    <exclude body1 = "rshoulderroll" body2 = "lwristpitch"/>
+    <exclude body1 = "rshoulderroll" body2 = "lwristroll"/>
+
+    <exclude body1 = "rshoulderyaw" body2 = "relbowpitch"/>
+    <exclude body1 = "rshoulderyaw" body2 = "rwristpitch"/>
+    <exclude body1 = "rshoulderyaw" body2 = "rwristroll"/>
+
+    <exclude body1 = "relbowpitch" body2 = "rwristpitch"/>
+    <exclude body1 = "relbowpitch" body2 = "rwristroll"/>
+
+    <exclude body1 = "rwristpitch" body2 = "rwristroll"/>
+    
+
+		<exclude body1 = "lshoulderpitch" body2 = "lhipyaw"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lhiproll"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lhippitch"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lkneepitch"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lanklepitch"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lankleroll"/>
+
+    <exclude body1 = "lshoulderpitch" body2 = "lshoulderroll"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lshoulderyaw"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lelbowpitch"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lwristpitch"/>
+    <exclude body1 = "lshoulderpitch" body2 = "lwristroll"/>
+
+    <exclude body1 = "lshoulderroll" body2 = "lshoulderyaw"/>
+    <exclude body1 = "lshoulderroll" body2 = "lelbowpitch"/>
+    <exclude body1 = "lshoulderroll" body2 = "lwristpitch"/>
+    <exclude body1 = "lshoulderroll" body2 = "lwristroll"/>
+
+    <exclude body1 = "lshoulderyaw" body2 = "lelbowpitch"/>
+    <exclude body1 = "lshoulderyaw" body2 = "lwristpitch"/>
+    <exclude body1 = "lshoulderyaw" body2 = "lwristroll"/>
+
+    <exclude body1 = "lelbowpitch" body2 = "lwristpitch"/>
+    <exclude body1 = "lelbowpitch" body2 = "lwristroll"/>
+
+    <exclude body1 = "lwristpitch" body2 = "lwristroll"/>
+
+		<!-- <pair name="rfoot_fricP" geom1="ranklepitch" geom2="floor" friction="0.5 0.5 0.005 0.01 0.01"/> -->
+    <!-- <pair name="rfoot_fricR" geom1="rankleroll"  geom2="floor" friction="0.5 0.5 0.005 0.01 0.01"/> -->
+    <!-- <pair name="lfoot_fricP" geom1="lanklepitch" geom2="floor" friction="0.5 0.5 0.005 0.01 0.01"/> -->
+		<!-- <pair name="lfoot_fricR" geom1="lankleroll"  geom2="floor" friction="0.5 0.5 0.005 0.01 0.01"/> -->
+	</contact>
+
+  <actuator>
+        <motor name="rhipyaw"    gear="100"  joint="rhipyaw" />
+        <motor name="rhiproll"   gear="100"  joint="rhiproll" />
+        <motor name="rhippitch"  gear="25"   joint="rhippitch" />
+        <motor name="rkneepitch" gear="1"    joint="rkneepitch" />
+        <motor name="ranklepitch"gear="1"    joint="ranklepitch" />
+        <motor name="rankleroll" gear="100"  joint="rankleroll" />
+
+        <motor name="lhipyaw"    gear="100"  joint="lhipyaw" />
+        <motor name="lhiproll"   gear="100"  joint="lhiproll" />
+        <motor name="lhippitch"  gear="25"   joint="lhippitch" />
+        <motor name="lkneepitch" gear="1"    joint="lkneepitch" />
+        <motor name="lanklepitch"gear="1"    joint="lanklepitch" />
+        <motor name="lankleroll" gear="100"  joint="lankleroll" />
+
+        <motor name="rshoulderpitch" gear="160" joint="rshoulderpitch" />
+        <motor name="rshoulderroll" gear="160" joint="rshoulderroll" />
+        <motor name="rshoulderyaw" gear="120" joint="rshoulderyaw" />
+        <motor name="relbowpitch" gear="120" joint="relbowpitch" />
+        <motor name="rwristpitch" gear="100" joint="rwristpitch" />
+        <motor name="rwristroll" gear="100" joint="rwristroll" />
+
+        <motor name="lshoulderpitch" gear="160" joint="lshoulderpitch" />
+        <motor name="lshoulderroll" gear="160" joint="lshoulderroll" />
+        <motor name="lshoulderyaw" gear="120" joint="lshoulderyaw" />
+        <motor name="lelbowpitch" gear="120" joint="lelbowpitch" />
+        <motor name="lwristpitch" gear="100" joint="lwristpitch" />
+        <motor name="lwristroll" gear="100" joint="lwristroll" />
+  </actuator>
+</mujoco>
