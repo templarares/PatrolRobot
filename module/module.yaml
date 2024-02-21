@@ -26,7 +26,9 @@ stance:
   joint1: [1.0]
   joint2: [-1.67]
 # Change the default attitude
-default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
+# for car ingress:
+#default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
+default_attitude: [0.9553, 0, 0, -0.2987, 0.2, -0.2, 0.8855]
 convexHulls:
   torso: [torso, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/torso-ch.txt"]
   rwristroll: [rwristroll, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rwristroll-ch.txt"]

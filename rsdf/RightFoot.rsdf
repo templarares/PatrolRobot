@@ -2,12 +2,12 @@
 <robot name="RightHand">
 
   <planar_surface name="RightFoot" link="rankleroll">
-    <origin rpy="0.0 -0.0 0.0" xyz="0.0 -0.00 -0.08" />
+    <origin rpy="0.0 -0.0 0.0" xyz="0.12 -0.00 -0.08" />
     <points>
-      <point xy="0.24 0.05" />
-      <point xy="0.24 -0.05" />
-      <point xy="0.02 -0.05" />
-      <point xy="0.02 0.05" />
+      <point xy="0.12 0.05" />
+      <point xy="0.12 -0.05" />
+      <point xy="-0.1 -0.05" />
+      <point xy="-0.1 0.05" />
     </points>
     <material name="plastic" />
   </planar_surface>
