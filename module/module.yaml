@@ -23,8 +23,8 @@ stance:
   lshoulderpitch: [0.37]
   lshoulderroll: [-0.2]
   lelbowpitch: [1.2]
-  joint1: [1.0]
-  joint2: [-1.67]
+  joint1: [0]
+  joint2: [-1.57]
 # Change the default attitude
 # for car ingress:
 #default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
