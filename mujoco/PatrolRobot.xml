@@ -1,0 +1,232 @@
+<mujoco model="PatrolRobot">
+    <compiler angle="radian" meshdir="../meshes/" balanceinertia="true"/>
+    <size njmax="1000" nconmax="1000" nuserdata="1000" nuser_actuator="26"/>
+    <option timestep="0.001" iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="elliptic" impratio="10" />
+    <asset>
+        <mesh name="torso" file="torso.STL" />
+        <mesh name="rhipyaw" file="rhipyaw.STL" />
+        <mesh name="rhiproll" file="rhiproll.STL" />
+        <mesh name="rhippitch" file="rhippitch.STL" />
+        <mesh name="rkneepitch" file="rkneepitch.STL" />
+        <mesh name="ranklepitch" file="ranklepitch.STL" />
+        <mesh name="rankleroll" file="rankleroll.STL" />
+        <mesh name="lhipyaw" file="lhipyaw.STL" />
+        <mesh name="lhiproll" file="lhiproll.STL" />
+        <mesh name="lhippitch" file="lhippitch.STL" />
+        <mesh name="lkneepitch" file="lkneepitch.STL" />
+        <mesh name="lanklepitch" file="lanklepitch.STL" />
+        <mesh name="lankleroll" file="lankleroll.STL" />
+        <mesh name="LArm0" file="LArm0.STL" />
+        <mesh name="LArm1" file="LArm1.STL" />
+        <mesh name="LArm2" file="LArm2.STL" />
+        <mesh name="LArm3" file="LArm3.STL" />
+        <mesh name="LArm4" file="LArm4.STL" />
+        <mesh name="LArm5" file="LArm5.STL" />
+        <mesh name="LArm6" file="LArm6.STL" />
+        <mesh name="LArm7" file="LArm7.STL" />
+        <mesh name="RArm0" file="RArm0.STL" />
+        <mesh name="RArm1" file="RArm1.STL" />
+        <mesh name="RArm2" file="RArm2.STL" />
+        <mesh name="RArm3" file="RArm3.STL" />
+        <mesh name="RArm4" file="RArm4.STL" />
+        <mesh name="RArm5" file="RArm5.STL" />
+        <mesh name="RArm6" file="RArm6.STL" />
+        <mesh name="RArm7" file="RArm7.STL" />
+    </asset>
+    <worldbody>
+        <body name="torso" pos="0 0 1.0">
+            <freejoint name="root" />
+	    <inertial pos="-0.0066717767331129 0.00092150806408371 0.373214317946892" quat="1 0 0 0" mass="19.908" diaginertia="0.1 0.07 0.09"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.752941 0.752941 0.752941 1" mesh="torso" />
+        <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="torso" />
+        <geom pos="-0.02 0.0175 0.5" quat="0.500198 -0.5002 0.4998 0.499802" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm0" />
+        <geom pos="-0.02 0.0175 0.5" quat="0.500198 -0.5002 0.4998 0.499802" type="mesh" rgba="1 1 1 1" mesh="LArm0" />
+        <geom pos="-0.02 -0.0175 0.5" quat="0.500198 0.5002 0.4998 -0.499802" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm0" />
+        <geom pos="-0.02 -0.0175 0.5" quat="0.500198 0.5002 0.4998 -0.499802" type="mesh" rgba="1 1 1 1" mesh="RArm0" />
+        <body name="rhipyaw" pos="-0.001 -0.1 0.1545">
+            <inertial pos="-0.0056695 -2.01306e-07 -0.0315531" quat="0.583794 0.399158 0.399187 0.58353" mass="1.29355" diaginertia="0.00232037 0.0021441 0.0013982" />
+            <joint name="rhipyaw" pos="0 0 0" axis="0 0 1" limited="true" range="-0.4187 0.2791" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="rhipyaw" />
+            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rhipyaw" />
+            <body name="rhiproll" pos="-0.098575 0 -0.1545">
+                <inertial pos="0.0547671 -0.00471997 -1.56068e-05" quat="0.705004 0.70497 0.0548439 0.0545755" mass="0.663141" diaginertia="0.0010753 0.00102671 0.000950911" />
+                <joint name="rhiproll" pos="0 0 0" axis="1 0 0" limited="true" range="-0.5582 0.3489" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="rhiproll" />
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rhiproll" />
+                <body name="rhippitch" pos="0.098575 0 0">
+                    <inertial pos="0.00987779 0.00902905 -0.124102" quat="0.999917 7.08525e-05 -0.0128511 -6.20284e-05" mass="1.93907" diaginertia="0.0135004 0.0126883 0.00346811" />
+                    <joint name="rhippitch" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.4884 1.57" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="rhippitch" />
+                    <geom type="mesh" rgba="1 1 1 1" mesh="rhippitch" />
+                    <body name="rkneepitch" pos="0.00754465 0.00336 -0.374943">
+                        <inertial pos="0.00299332 -0.000641405 -0.127537" quat="0.999992 -2.68887e-07 0.00396719 -6.77772e-05" mass="1.27081" diaginertia="0.00850634 0.00818219 0.00132553" />
+                        <joint name="rkneepitch" pos="0 0 0" axis="0 1 0" limited="true" range="0 2.355" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="rkneepitch" />
+                        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rkneepitch" />
+                        <body name="ranklepitch" pos="0 0 -0.35">
+                            <inertial pos="-0.0204101 9.6862e-05 0.00245428" quat="0.495597 0.504376 0.504337 0.495613" mass="0.178163" diaginertia="0.000148807 0.000147744 3.73525e-05" />
+                            <joint name="ranklepitch" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.8722 1.221" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="ranklepitch" />
+                            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="ranklepitch" />
+                            <body name="rankleroll" pos="-0.09675 0 0">
+                                <inertial pos="0.103469 0.000115477 -0.0513475" quat="-0.00349569 0.700112 0.00148732 0.714023" mass="1.59353" diaginertia="0.00515003 0.00439932 0.000992804" />
+                                <joint name="rankleroll" pos="0 0 0" axis="1 0 0" limited="true" range="-0.314 0.314" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="rankleroll" />
+                                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="rankleroll" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <body name="lhipyaw" pos="-0.001 0.1 0.1545">
+            <inertial pos="-0.0056695 2.01306e-07 -0.0315531" quat="0.58353 0.399187 0.399158 0.583794" mass="1.29355" diaginertia="0.00232037 0.0021441 0.0013982" />
+            <joint name="lhipyaw" pos="0 0 0" axis="0 0 1" limited="true" range="-0.279 0.4187" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="lhipyaw" />
+            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lhipyaw" />
+            <body name="lhiproll" pos="-0.098575 0 -0.1545">
+                <inertial pos="0.0547671 0.00471997 -1.56068e-05" quat="0.70497 0.705004 -0.0545755 -0.0548439" mass="0.663141" diaginertia="0.0010753 0.00102671 0.000950911" />
+                <joint name="lhiproll" pos="0 0 0" axis="1 0 0" limited="true" range="-0.3489 0.5582" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="lhiproll" />
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lhiproll" />
+                <body name="lhippitch" pos="0.098575 0 0">
+                    <inertial pos="0.00987779 -0.00902905 -0.124102" quat="0.999917 -7.08525e-05 -0.0128511 6.20284e-05" mass="1.93907" diaginertia="0.0135004 0.0126883 0.00346811" />
+                    <joint name="lhippitch" pos="0 0 0" axis="0 1 0" limited="true" range="-1.57 0.4884" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.752941 0.752941 0.752941 1" mesh="lhippitch" />
+                    <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="lhippitch" />
+                    <body name="lkneepitch" pos="0.00754465 -0.00336 -0.374943">
+                        <inertial pos="0.00299332 0.000641405 -0.127537" quat="0.999992 2.68887e-07 0.00396719 6.77772e-05" mass="1.27081" diaginertia="0.00850634 0.00818219 0.00132553" />
+                        <joint name="lkneepitch" pos="0 0 0" axis="0 1 0" limited="true" range="0 2.355" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="lkneepitch" />
+                        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lkneepitch" />
+                        <body name="lanklepitch" pos="0 0 -0.35">
+                            <inertial pos="-0.0204101 -9.6862e-05 0.00245428" quat="0.495613 0.504337 0.504376 0.495597" mass="0.178163" diaginertia="0.000148807 0.000147744 3.73525e-05" />
+                            <joint name="lanklepitch" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.872 1.221" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="lanklepitch" />
+                            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lanklepitch" />
+                            <body name="lankleroll" pos="-0.09675 0 0">
+                                <inertial pos="0.10537 0.000141312 -0.0521031" quat="-0.00359769 0.700128 0.000946234 0.714007" mass="1.5703" diaginertia="0.00514418 0.00439355 0.000984576" />
+                                <joint name="lankleroll" pos="0 0 0" axis="1 0 0" limited="true" range="-0.314 0.314" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" mesh="lankleroll" />
+                                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="lankleroll" />
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <body name="LArm1" pos="-0.0200009 0.258 0.5" quat="-2.59838e-06 -0.707388 -2.59631e-06 0.706825">
+            <inertial pos="-2.1376e-07 0.025186 -0.021108" quat="0.593933 0.804515 0.000192591 -0.000152821" mass="0.59356" diaginertia="0.0012661 0.00124679 0.000496262" />
+            <joint name="LArm1" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm1" />
+            <geom type="mesh" rgba="1 1 1 1" mesh="LArm1" />
+            <body name="LArm2" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="4.1111e-07 0.011078 0.076129" quat="0.700419 0.0973659 -0.0973528 0.700325" mass="0.43285" diaginertia="0.0013016 0.0012584 0.000238373" />
+                <joint name="LArm2" pos="0 0 0" axis="0 1 0" limited="true" range="-2.269 2.269" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm2" />
+                <geom type="mesh" rgba="1 1 1 1" mesh="LArm2" />
+                <body name="LArm3" pos="0 0 0.256" quat="0.707105 -0.707108 0 0">
+                    <inertial pos="-4.7932e-07 0.027347 -0.023544" quat="0.593129 0.805107 0.000113245 -7.25395e-05" mass="0.43132" diaginertia="0.00079433 0.000774631 0.000270809" />
+                    <joint name="LArm3" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm3" />
+                    <geom type="mesh" rgba="1 1 1 1" mesh="LArm3" />
+                    <body name="LArm4" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                        <inertial pos="5.0444e-06 0.010569 0.059593" quat="0.699779 0.0991931 -0.0993915 0.700422" mass="0.28963" diaginertia="0.000656041 0.00063737 0.000114619" />
+                        <joint name="LArm4" pos="0 0 0" axis="0 1 0" limited="true" range="-2.356 2.356" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm4" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="LArm4" />
+                        <body name="LArm5" pos="0 0 0.21" quat="0.707105 -0.707108 0 0">
+                            <inertial pos="1.1466e-06 0.021541 -0.018041" quat="0.602601 0.798043 -7.29912e-05 6.38891e-05" mass="0.23941" diaginertia="0.00028594 0.000275321 0.000107299" />
+                            <joint name="LArm5" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm5" />
+                            <geom type="mesh" rgba="1 1 1 1" mesh="LArm5" />
+                            <body name="LArm6" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                                <inertial pos="4.5754e-06 0.0073681 0.059382" quat="0.6989 0.105282 -0.10547 0.699522" mass="0.21879" diaginertia="0.000358601 0.00035053 8.07893e-05" />
+                                <joint name="LArm6" pos="0 0 0" axis="0 1 0" limited="true" range="-2.234 2.234" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm6" />
+                                <geom type="mesh" rgba="1 1 1 1" mesh="LArm6" />
+                                <body name="LArm7" pos="0 0 0.1725">
+                                    <inertial pos="0.00032231 -0.0001782 -0.028676" quat="0.612939 0.351641 -0.613619 0.352317" mass="0.14433" diaginertia="6.1463e-05 3.68926e-05 3.38524e-05" />
+                                    <joint name="LArm7" pos="0 0 0" axis="0 0 1" limited="true" range="-6.283 6.283" />
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="LArm7" />
+                                    <geom type="mesh" rgba="1 1 1 1" mesh="LArm7" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <body name="RArm1" pos="-0.0200009 -0.258 0.5" quat="0.707388 0 0.706825 0">
+            <inertial pos="-2.1376e-07 0.025186 -0.021108" quat="0.593933 0.804515 0.000192591 -0.000152821" mass="0.59356" diaginertia="0.0012661 0.00124679 0.000496262" />
+            <joint name="RArm1" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm1" />
+            <geom type="mesh" rgba="1 1 1 1" mesh="RArm1" />
+            <body name="RArm2" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="4.1111e-07 0.011078 0.076129" quat="0.700419 0.0973659 -0.0973528 0.700325" mass="0.43285" diaginertia="0.0013016 0.0012584 0.000238373" />
+                <joint name="RArm2" pos="0 0 0" axis="0 1 0" limited="true" range="-2.269 2.269" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm2" />
+                <geom type="mesh" rgba="1 1 1 1" mesh="RArm2" />
+                <body name="RArm3" pos="0 0 0.256" quat="0.707105 -0.707108 0 0">
+                    <inertial pos="-4.7932e-07 0.027347 -0.023544" quat="0.593129 0.805107 0.000113245 -7.25395e-05" mass="0.43132" diaginertia="0.00079433 0.000774631 0.000270809" />
+                    <joint name="RArm3" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm3" />
+                    <geom type="mesh" rgba="1 1 1 1" mesh="RArm3" />
+                    <body name="RArm4" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                        <inertial pos="5.0444e-06 0.010569 0.059593" quat="0.699779 0.0991931 -0.0993915 0.700422" mass="0.28963" diaginertia="0.000656041 0.00063737 0.000114619" />
+                        <joint name="RArm4" pos="0 0 0" axis="0 1 0" limited="true" range="-2.356 2.356" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm4" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="RArm4" />
+                        <body name="RArm5" pos="0 0 0.21" quat="0.707105 -0.707108 0 0">
+                            <inertial pos="1.1466e-06 0.021541 -0.018041" quat="0.602601 0.798043 -7.29912e-05 6.38891e-05" mass="0.23941" diaginertia="0.00028594 0.000275321 0.000107299" />
+                            <joint name="RArm5" pos="0 0 0" axis="0 -1 0" limited="true" range="-3.107 3.107" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm5" />
+                            <geom type="mesh" rgba="1 1 1 1" mesh="RArm5" />
+                            <body name="RArm6" pos="0 0 0" quat="0.707105 0.707108 0 0">
+                                <inertial pos="4.5754e-06 0.0073681 0.059382" quat="0.6989 0.105282 -0.10547 0.699522" mass="0.21879" diaginertia="0.000358601 0.00035053 8.07893e-05" />
+                                <joint name="RArm6" pos="0 0 0" axis="0 1 0" limited="true" range="-2.234 2.234" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm6" />
+                                <geom type="mesh" rgba="1 1 1 1" mesh="RArm6" />
+                                <body name="RArm7" pos="0 0 0.1725">
+                                    <inertial pos="0.00032231 -0.0001782 -0.028676" quat="0.612939 0.351641 -0.613619 0.352317" mass="0.14433" diaginertia="6.1463e-05 3.68926e-05 3.38524e-05" />
+                                    <joint name="RArm7" pos="0 0 0" axis="0 0 1" limited="true" range="-6.283 6.283" />
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="RArm7" />
+                                    <geom type="mesh" rgba="1 1 1 1" mesh="RArm7" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+      </body>
+    </worldbody>
+
+    <actuator>
+      <motor name="rhipyaw_motor" joint="rhipyaw" />
+      <motor name="rhiproll_motor" joint="rhiproll" />
+      <motor name="rhippitch_motor" joint="rhippitch" />
+      <motor name="rkneepitch_motor" joint="rkneepitch" />
+      <motor name="ranklepitch_motor" joint="ranklepitch" />
+      <motor name="rankleroll_motor" joint="rankleroll" />
+      <motor name="lhipyaw_motor" joint="lhipyaw" />
+      <motor name="lhiproll_motor" joint="lhiproll" />
+      <motor name="lhippitch_motor" joint="lhippitch" />
+      <motor name="lkneepitch_motor" joint="lkneepitch" />
+      <motor name="lanklepitch_motor" joint="lanklepitch" />
+      <motor name="lankleroll_motor" joint="lankleroll" />
+      <motor name="LArm1_motor" joint="LArm1" />
+      <motor name="LArm2_motor" joint="LArm2" />
+      <motor name="LArm3_motor" joint="LArm3" />
+      <motor name="LArm4_motor" joint="LArm4" />
+      <motor name="LArm5_motor" joint="LArm5" />
+      <motor name="LArm6_motor" joint="LArm6" />
+      <motor name="RArm1_motor" joint="RArm1" />
+      <motor name="RArm2_motor" joint="RArm2" />
+      <motor name="RArm3_motor" joint="RArm3" />
+      <motor name="RArm4_motor" joint="RArm4" />
+      <motor name="RArm5_motor" joint="RArm5" />
+      <motor name="RArm6_motor" joint="RArm6" />
+    </actuator>
+
+</mujoco>
