@@ -25,30 +25,102 @@ stance:
 #default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
 default_attitude: [0.9553, 0, 0, -0.2987, 0.2, -0.2, 0.8855]
 convexHulls:
-  torso: [torso, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/torso-ch.txt"]
-  rkneepitch: [rkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rkneepitch-ch.txt"]
-  rhipyaw: [rhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rhipyaw-ch.txt"]
-  rhiproll: [rhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rhiproll-ch.txt"]
-  rhippitch: [rhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rhippitch-ch.txt"]
-  relbowpitch: [relbowpitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/relbowpitch-ch.txt"]
-  rankleroll: [rankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/rankleroll-ch.txt"]
-  ranklepitch: [ranklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/ranklepitch-ch.txt"]
-  lkneepitch: [lkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lkneepitch-ch.txt"]
-  lhipyaw: [lhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lhipyaw-ch.txt"]
-  lhiproll: [lhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lhiproll-ch.txt"]
-  lhippitch: [lhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lhippitch-ch.txt"]
-  lankleroll: [lankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lankleroll-ch.txt"]
-  lanklepitch: [lanklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/meshes/lanklepitch-ch.txt"]
+  torso: [torso, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/torso-ch.txt"]
+  rkneepitch: [rkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rkneepitch-ch.txt"]
+  rhipyaw: [rhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rhipyaw-ch.txt"]
+  rhiproll: [rhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rhiproll-ch.txt"]
+  rhippitch: [rhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rhippitch-ch.txt"]
+  relbowpitch: [relbowpitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/relbowpitch-ch.txt"]
+  rankleroll: [rankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rankleroll-ch.txt"]
+  ranklepitch: [ranklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/ranklepitch-ch.txt"]
+  lkneepitch: [lkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lkneepitch-ch.txt"]
+  lhipyaw: [lhipyaw, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lhipyaw-ch.txt"]
+  lhiproll: [lhiproll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lhiproll-ch.txt"]
+  lhippitch: [lhippitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lhippitch-ch.txt"]
+  lankleroll: [lankleroll, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lankleroll-ch.txt"]
+  lanklepitch: [lanklepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/lanklepitch-ch.txt"]
+  LArm0: [LArm0, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm0-ch.txt"]
+  LArm1: [LArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm1-ch.txt"]
+  LArm2: [LArm2, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm2-ch.txt"]
+  LArm3: [LArm3, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm3-ch.txt"]
+  LArm4: [LArm4, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm4-ch.txt"]
+  LArm5: [LArm5, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm5-ch.txt"]
+  LArm6: [LArm6, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/LArm6-ch.txt"]
+  RArm0: [RArm0, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm0-ch.txt"]
+  RArm1: [RArm1, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm1-ch.txt"]
+  RArm2: [RArm2, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm2-ch.txt"]
+  RArm3: [RArm3, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm3-ch.txt"]
+  RArm4: [RArm4, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm4-ch.txt"]
+  RArm5: [RArm5, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm5-ch.txt"]
+  RArm6: [RArm6, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/RArm6-ch.txt"]
 # Default setting for the collision parameters
 default-col: &default-col
-  iDist: 0.12
-  sDist: 0.015
+  iDist: 0.02
+  sDist: 0.01
   damping: 0
 minimalSelfCollisions:
   # Arm <-> Body collision
-
+  - body1: torso
+    body2: LArm1
+    <<: *default-col
+  - body1: torso
+    body2: LArm2
+    <<: *default-col
+  - body1: torso
+    body2: LArm3
+    <<: *default-col
+  - body1: torso
+    body2: LArm4
+    <<: *default-col
+  - body1: torso
+    body2: LArm5
+    <<: *default-col
+  - body1: torso
+    body2: LArm6
+    <<: *default-col
+  - body1: torso
+    body2: RArm1
+    <<: *default-col
+  - body1: torso
+    body2: RArm2
+    <<: *default-col
+  - body1: torso
+    body2: RArm3
+    <<: *default-col
+  - body1: torso
+    body2: RArm4
+    <<: *default-col
+  - body1: torso
+    body2: RArm5
+    <<: *default-col
+  - body1: torso
+    body2: RArm6
+    <<: *default-col
   # Arm <-> Hip collision
-
+  - body1: rhipyaw
+    body2: RArm5
+    <<: *default-col
+  - body1: rhippitch
+    body2: RArm5
+    <<: *default-col
+  - body1: rhipyaw
+    body2: RArm6
+    <<: *default-col
+  - body1: rhippitch
+    body2: RArm6
+    <<: *default-col
+  - body1: lhipyaw
+    body2: LArm5
+    <<: *default-col
+  - body1: lhippitch
+    body2: LArm5
+    <<: *default-col
+  - body1: lhipyaw
+    body2: LArm6
+    <<: *default-col
+  - body1: lhippitch
+    body2: LArm6
+    <<: *default-col
   # Arm <-> Leg collision
 
 # hand <-> feet

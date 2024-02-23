@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="LeftHand">
 
-  <planar_surface name="LeftHand" link="Link7">
+  <planar_surface name="LeftHand" link="LArm6">
     <origin rpy="0.0 -0.0 0.0" xyz="0.0 -0.00 -0.05" />
     <points>
       <point xy="0.04749999940395355 -0.013833190314471722" />
