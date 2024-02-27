@@ -3,10 +3,17 @@
 # https://jrl-umi3218.github.io/mc_rtc/tutorials/advanced/new-robot.html#organization-of-your-robot-description-package
 path: "@CMAKE_CURRENT_SOURCE_DIR@"
 # Name of the RobotModule/Default name of the robot when loaded with this module
-name: PatrolRobot
+name: patrol_robot
 # Where the URDF is located
-urdf_path: "@CMAKE_CURRENT_SOURCE_DIR@/urdf/PatrolRobot.urdf"
+urdf_path: "@CMAKE_CURRENT_SOURCE_DIR@/urdf/patrol_robot.urdf"
 rsdf_dir: "@CMAKE_CURRENT_SOURCE_DIR@/rsdf/"
+
+ref_joint_order: [  
+  
+  rhipyaw,rhiproll,rhippitch,rkneepitch,ranklepitch,rankleroll,lhipyaw,lhiproll,lhippitch,lkneepitch,lanklepitch,lankleroll,LArm1,LArm2,LArm3,LArm4,
+  LArm5,LArm6,LArm7,RArm1,RArm2,RArm3,RArm4,RArm5,RArm6,RArm7
+]
+
 # Not a fixed based robot
 fixed: false
 # Change the default configuration
@@ -23,7 +30,7 @@ stance:
 # Change the default attitude
 # for car ingress:
 #default_attitude: [0.9553, 0, 0, -0.2987, 0.2, 0.86, 0.98855]
-default_attitude: [0.9553, 0, 0, -0.2987, 0.2, -0.2, 1.8855]
+default_attitude: [0.9553, 0, 0, -0.2987, 0.2, -0.2, 1.7655]
 convexHulls:
   torso: [torso, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/torso-ch.txt"]
   rkneepitch: [rkneepitch, "@CMAKE_CURRENT_SOURCE_DIR@/convex/patrol_robot/rkneepitch-ch.txt"]
@@ -61,9 +68,6 @@ default-col: &default-col
 minimalSelfCollisions:
   # Arm <-> Body collision
   - body1: torso
-    body2: LArm1
-    <<: *default-col
-  - body1: torso
     body2: LArm2
     <<: *default-col
   - body1: torso
@@ -77,9 +81,6 @@ minimalSelfCollisions:
     <<: *default-col
   - body1: torso
     body2: LArm6
-    <<: *default-col
-  - body1: torso
-    body2: RArm1
     <<: *default-col
   - body1: torso
     body2: RArm2
@@ -161,16 +162,7 @@ forceSensors:
     X_p_f:
       rotation: [-0.0, -0.0, 0]
       translation: [0.095, -0.0, -0.05]
-  - name: RightHandForceSensor
-    parentBody: rwristroll
-    X_p_f:
-      rotation: [0.0, 0.0, -1.57]
-      translation: [0, -0.00, -0.055]
-  - name: LeftHandForceSensor
-    parentBody: Link6
-    X_p_f:
-      rotation: [0.0, 0.0, -1.57]
-      translation: [0, -0.00, -0.055]
+
 # lipmStabilizer:
 #   leftFootSurface: LeftFoot
 #   rightFootSurface: RightFoot

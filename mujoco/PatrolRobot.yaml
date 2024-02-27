@@ -1,2 +1,0 @@
-xmlModelPath: "@PROJECT_SOURCE_DIR@/mujoco/PatrolRobot.xml"
-pdGainsPath: "@PROJECT_SOURCE_DIR@/mujoco/pdgains.dat"
